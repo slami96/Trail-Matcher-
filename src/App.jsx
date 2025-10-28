@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import Welcome from './pages/Welcome'
-import Quiz from './pages/Quiz'
-import Results from './pages/Results'
-import TrailDetail from './pages/TrailDetail'
-import MyPlan from './pages/MyPlan'
+import Navbar from './components/Navbar.jsx'
+import Welcome from './pages/Welcome.jsx'
+import Quiz from './pages/Quiz.jsx'
+import Results from './pages/Results.jsx'
+import TrailDetail from './pages/TrailDetail.jsx'
+import MyPlan from './pages/MyPlan.jsx'
 
 function App() {
   return (
