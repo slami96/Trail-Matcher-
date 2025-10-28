@@ -42,14 +42,21 @@ const TrailCard = ({ trail, showMatch = false, onRemove = null }) => {
         to={`/trail/${trail.id}`} 
         style={{ textDecoration: 'none', color: 'inherit' }}
       >
-        {/* Trail image - will use real images when you upload them */}
-        <div 
-          className="trail-placeholder"
-          style={{
-            background: `linear-gradient(135deg, ${getDifficultyColor(trail.difficulty)}, var(--secondary))`,
-            position: 'relative'
-          }}
-        >
+        {/* Trail image - now using real photos */}
+        <div style={{ position: 'relative' }}>
+          <img 
+            src={`/images/trails/trail-${trail.id}.jpg`}
+            alt={trail.name}
+            style={{
+              width: '100%',
+              height: '200px',
+              borderRadius: '12px',
+              objectFit: 'cover',
+              marginBottom: '1rem'
+            }}
+            loading="lazy"
+          />
+          
           {/* Match badge - positioned on top of image */}
           {showMatch && trail.match && (
             <div style={{
@@ -71,7 +78,7 @@ const TrailCard = ({ trail, showMatch = false, onRemove = null }) => {
         </div>
 
         {/* Trail info */}
-        <div style={{ marginTop: '1rem' }}>
+        <div>
           <h3 style={{ marginBottom: '0.75rem' }}>{trail.name}</h3>
           
           <div className="trail-stats" style={{ marginBottom: '1rem' }}>
@@ -109,7 +116,7 @@ const TrailCard = ({ trail, showMatch = false, onRemove = null }) => {
         </div>
       </Link>
 
-      {/* Save button - outside the Link to prevent nesting */}
+      {/* Save button - outside Link to prevent nesting */}
       <button
         onClick={handleSaveToggle}
         className={isSaved ? 'btn btn-accent btn-full' : 'btn btn-secondary btn-full'}
