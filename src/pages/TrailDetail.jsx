@@ -81,34 +81,31 @@ const TrailDetail = () => {
   return (
     <main style={{ padding: '2rem 1rem', minHeight: '80vh' }}>
       <div className="container" style={{ maxWidth: '900px' }}>
-        {/* Back button */}
         <Link to="/results" className="btn btn-secondary" style={{ marginBottom: '2rem' }}>
           ← Back to Results
         </Link>
 
-        {/* Trail image placeholder */}
+        {/* Hero image - clean gradient, no emoji */}
         <div 
-          className="trail-placeholder"
           style={{
+            width: '100%',
             height: '400px',
+            borderRadius: '16px',
             background: `linear-gradient(135deg, ${getDifficultyColor(trail.difficulty)}, var(--secondary))`,
-            fontSize: '5rem'
+            marginBottom: '2rem'
           }}
-        >
-          🏔️
-        </div>
+        />
 
         {/* Trail header */}
-        <div style={{ marginTop: '2rem' }}>
+        <div style={{ marginBottom: '2rem' }}>
           <div className="flex-between" style={{ marginBottom: '1rem', flexWrap: 'wrap', gap: '1rem' }}>
             <div>
-              <h1>{trail.name}</h1>
+              <h1 style={{ marginBottom: '0.5rem' }}>{trail.name}</h1>
               <span 
                 className="badge" 
                 style={{ 
                   backgroundColor: getDifficultyColor(trail.difficulty),
-                  fontSize: '1rem',
-                  marginTop: '0.5rem'
+                  fontSize: '1rem'
                 }}
               >
                 {trail.difficulty}
@@ -123,11 +120,11 @@ const TrailDetail = () => {
             </button>
           </div>
 
-          <p style={{ fontSize: '1.1rem' }}>{trail.description}</p>
+          <p style={{ fontSize: '1.1rem', lineHeight: '1.7' }}>{trail.description}</p>
         </div>
 
         {/* Trail stats */}
-        <div className="card" style={{ marginTop: '2rem' }}>
+        <div className="card" style={{ marginBottom: '2rem' }}>
           <h3 style={{ marginBottom: '1.5rem' }}>Trail Stats</h3>
           
           <div className="grid grid-2">
@@ -182,7 +179,7 @@ const TrailDetail = () => {
         </div>
 
         {/* Features */}
-        <div className="card" style={{ marginTop: '2rem' }}>
+        <div className="card" style={{ marginBottom: '2rem' }}>
           <h3 style={{ marginBottom: '1rem' }}>What You'll See</h3>
           <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
             {trail.features.map(feature => (
@@ -194,15 +191,15 @@ const TrailDetail = () => {
         </div>
 
         {/* Highlights */}
-        <div className="card" style={{ marginTop: '2rem' }}>
+        <div className="card" style={{ marginBottom: '2rem' }}>
           <h3 style={{ marginBottom: '1rem' }}>Highlights</h3>
-          <p>{trail.highlights}</p>
+          <p style={{ lineHeight: '1.7' }}>{trail.highlights}</p>
         </div>
 
         {/* Suitable for */}
-        <div className="card" style={{ marginTop: '2rem' }}>
+        <div className="card" style={{ marginBottom: '2rem' }}>
           <h3 style={{ marginBottom: '1rem' }}>Suitable For</h3>
-          <p>{trail.suitable_for}</p>
+          <p style={{ lineHeight: '1.7' }}>{trail.suitable_for}</p>
         </div>
 
         {/* CTA */}
