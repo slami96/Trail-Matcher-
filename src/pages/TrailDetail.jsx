@@ -85,15 +85,18 @@ const TrailDetail = () => {
           ← Back to Results
         </Link>
 
-        {/* Hero image - clean gradient, no emoji */}
-        <div 
+        {/* Hero image - now using real photo */}
+        <img 
+          src={`/images/trails/trail-${trail.id}.jpg`}
+          alt={trail.name}
           style={{
             width: '100%',
             height: '400px',
             borderRadius: '16px',
-            background: `linear-gradient(135deg, ${getDifficultyColor(trail.difficulty)}, var(--secondary))`,
+            objectFit: 'cover',
             marginBottom: '2rem'
           }}
+          loading="lazy"
         />
 
         {/* Trail header */}
