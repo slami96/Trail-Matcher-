@@ -7,8 +7,14 @@ const Navbar = () => {
     <nav>
       <div className="container">
         <Link to="/" className="logo">
-          <span style={{ fontSize: '1.5rem' }}>🏔️</span>
-          <span>High Tatras</span>
+          <img 
+            src="/images/logo.png" 
+            alt="High Tatras Trail Planner Logo"
+            style={{ 
+              height: '40px',
+              width: 'auto'
+            }}
+          />
         </Link>
         
         <ul className="nav-links">
