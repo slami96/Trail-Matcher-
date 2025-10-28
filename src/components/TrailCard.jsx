@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 const TrailCard = ({ trail, showMatch = false, onRemove = null }) => {
   const [isSaved, setIsSaved] = useState(false)
 
-  // check if trail is already saved when component loads
   useEffect(() => {
     const savedTrails = JSON.parse(localStorage.getItem('savedTrails') || '[]')
     setIsSaved(savedTrails.some(t => t.id === trail.id))
@@ -12,16 +11,15 @@ const TrailCard = ({ trail, showMatch = false, onRemove = null }) => {
 
   const handleSaveToggle = (e) => {
     e.preventDefault()
+    e.stopPropagation()
     const savedTrails = JSON.parse(localStorage.getItem('savedTrails') || '[]')
     
     if (isSaved) {
-      // remove from saved
       const updated = savedTrails.filter(t => t.id !== trail.id)
       localStorage.setItem('savedTrails', JSON.stringify(updated))
       setIsSaved(false)
       if (onRemove) onRemove(trail.id)
     } else {
-      // add to saved
       savedTrails.push(trail)
       localStorage.setItem('savedTrails', JSON.stringify(savedTrails))
       setIsSaved(true)
@@ -39,63 +37,86 @@ const TrailCard = ({ trail, showMatch = false, onRemove = null }) => {
   }
 
   return (
-    <Link to={`/trail/${trail.id}`} className="card" style={{ textDecoration: 'none', color: 'inherit' }}>
-      {/* Trail image or placeholder */}
-      <div 
-        className="trail-placeholder"
-        style={{
-          background: `linear-gradient(135deg, ${getDifficultyColor(trail.difficulty)}, var(--secondary))`
-        }}
+    <div className="card" style={{ position: 'relative', cursor: 'pointer' }}>
+      <Link 
+        to={`/trail/${trail.id}`} 
+        style={{ textDecoration: 'none', color: 'inherit' }}
       >
-        🏔️
-      </div>
-
-      {/* Match percentage badge if showing matches */}
-      {showMatch && trail.match && (
-        <div className="match-badge mb-1">
-          ✨ {trail.match.score}% Match
+        {/* Trail image - will use real images when you upload them */}
+        <div 
+          className="trail-placeholder"
+          style={{
+            background: `linear-gradient(135deg, ${getDifficultyColor(trail.difficulty)}, var(--secondary))`,
+            position: 'relative'
+          }}
+        >
+          {/* Match badge - positioned on top of image */}
+          {showMatch && trail.match && (
+            <div style={{
+              position: 'absolute',
+              top: '1rem',
+              left: '1rem',
+              padding: '0.5rem 1rem',
+              background: 'rgba(255, 255, 255, 0.95)',
+              backdropFilter: 'blur(10px)',
+              borderRadius: '20px',
+              fontWeight: '700',
+              fontSize: '1rem',
+              color: 'var(--primary)',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+            }}>
+              ✨ {trail.match.score}% Match
+            </div>
+          )}
         </div>
-      )}
 
-      <h3>{trail.name}</h3>
-      
-      <div className="trail-stats">
-        <span className="stat-item">
-          📏 {trail.distance_km} km
-        </span>
-        <span className="stat-item">
-          ⏱️ {trail.duration_hours}h
-        </span>
-        <span className="stat-item">
-          📈 {trail.elevation_gain_m}m ↑
-        </span>
-      </div>
+        {/* Trail info */}
+        <div style={{ marginTop: '1rem' }}>
+          <h3 style={{ marginBottom: '0.75rem' }}>{trail.name}</h3>
+          
+          <div className="trail-stats" style={{ marginBottom: '1rem' }}>
+            <span className="stat-item">📏 {trail.distance_km} km</span>
+            <span className="stat-item">⏱️ {trail.duration_hours}h</span>
+            <span className="stat-item">📈 {trail.elevation_gain_m}m ↑</span>
+          </div>
 
-      <span 
-        className="badge" 
-        style={{ backgroundColor: getDifficultyColor(trail.difficulty) }}
-      >
-        {trail.difficulty}
-      </span>
+          <span 
+            className="badge" 
+            style={{ 
+              backgroundColor: getDifficultyColor(trail.difficulty),
+              display: 'inline-block',
+              marginBottom: '1rem'
+            }}
+          >
+            {trail.difficulty}
+          </span>
 
-      {/* Show match reasons if available */}
-      {showMatch && trail.match && trail.match.reasons.length > 0 && (
-        <div style={{ marginTop: '1rem', fontSize: '0.9rem', color: 'var(--text-gray)' }}>
-          {trail.match.reasons.map((reason, idx) => (
-            <div key={idx}>✓ {reason}</div>
-          ))}
+          {/* Match reasons */}
+          {showMatch && trail.match && trail.match.reasons.length > 0 && (
+            <div style={{ 
+              fontSize: '0.9rem', 
+              color: 'var(--text-gray)',
+              marginBottom: '1rem',
+              lineHeight: '1.6'
+            }}>
+              {trail.match.reasons.map((reason, idx) => (
+                <div key={idx} style={{ marginBottom: '0.25rem' }}>
+                  ✓ {reason}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
-      )}
+      </Link>
 
-      {/* Save button */}
+      {/* Save button - outside the Link to prevent nesting */}
       <button
         onClick={handleSaveToggle}
-        className={isSaved ? 'btn btn-accent btn-full mt-2' : 'btn btn-secondary btn-full mt-2'}
-        style={{ marginTop: '1rem' }}
+        className={isSaved ? 'btn btn-accent btn-full' : 'btn btn-secondary btn-full'}
       >
         {isSaved ? '❤️ Saved' : '🤍 Save to My Plan'}
       </button>
-    </Link>
+    </div>
   )
 }
 
