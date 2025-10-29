@@ -73,14 +73,13 @@ const MyPlan = () => {
         {stats && (
           <div className="card" style={{ 
             marginBottom: '3rem',
-            background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(20, 184, 166, 0.1))',
+            background: 'linear-gradient(135deg, rgba(26, 88, 64, 0.1), rgba(16, 185, 129, 0.1))',
             border: '2px solid var(--primary)'
           }}>
             <h3 style={{ marginBottom: '1.5rem' }}>Your Total Adventure Stats</h3>
             
             <div className="grid grid-3">
               <div style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>📏</div>
                 <div style={{ 
                   fontSize: '1.75rem',
                   fontWeight: '700',
@@ -92,7 +91,6 @@ const MyPlan = () => {
               </div>
 
               <div style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>⏱️</div>
                 <div style={{ 
                   fontSize: '1.75rem',
                   fontWeight: '700',
@@ -104,7 +102,6 @@ const MyPlan = () => {
               </div>
 
               <div style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>📈</div>
                 <div style={{ 
                   fontSize: '1.75rem',
                   fontWeight: '700',
@@ -134,11 +131,10 @@ const MyPlan = () => {
           </div>
         ) : (
           <div className="empty-state">
-            <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>🏔️</div>
             <h2>No Trails Saved Yet</h2>
             <p>Take the quiz to find trails that match your preferences and save your favorites here!</p>
             <Link to="/quiz" className="btn btn-primary" style={{ marginTop: '1.5rem' }}>
-              Start Quiz 🚀
+              Start Quiz
             </Link>
           </div>
         )}
@@ -152,7 +148,7 @@ const MyPlan = () => {
             borderRadius: '16px',
             border: '1px solid var(--border)'
           }}>
-            <h3 style={{ marginBottom: '1rem' }}>Planning Tips 💡</h3>
+            <h3 style={{ marginBottom: '1rem' }}>Planning Tips</h3>
             <ul style={{ 
               listStyle: 'none',
               padding: 0,
