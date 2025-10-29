@@ -18,17 +18,17 @@ const Quiz = () => {
     group: ''
   })
 
-  // quiz questions configuration
+  // quiz questions configuration - NO EMOJIS
   const questions = [
     {
       id: 'fitness',
       question: 'What is your fitness level?',
       type: 'radio',
       options: [
-        { value: 'beginner', label: '🚶 Beginner - I prefer easy walks' },
-        { value: 'intermediate', label: '🥾 Intermediate - Regular hiker, comfortable with hills' },
-        { value: 'advanced', label: '⛰️ Advanced - Experienced hiker, love challenges' },
-        { value: 'expert', label: '🏔️ Expert - Technical climbs and long expeditions' }
+        { value: 'beginner', label: 'Beginner - I prefer easy walks' },
+        { value: 'intermediate', label: 'Intermediate - Regular hiker, comfortable with hills' },
+        { value: 'advanced', label: 'Advanced - Experienced hiker, love challenges' },
+        { value: 'expert', label: 'Expert - Technical climbs and long expeditions' }
       ]
     },
     {
@@ -36,10 +36,10 @@ const Quiz = () => {
       question: 'How long would you like to hike?',
       type: 'radio',
       options: [
-        { value: 'short', label: '📏 Short (under 5 km)' },
-        { value: 'medium', label: '📏 Medium (5-12 km)' },
-        { value: 'long', label: '📏 Long (12-20 km)' },
-        { value: 'very-long', label: '📏 Very Long (20+ km)' }
+        { value: 'short', label: 'Short (under 5 km)' },
+        { value: 'medium', label: 'Medium (5-12 km)' },
+        { value: 'long', label: 'Long (12-20 km)' },
+        { value: 'very-long', label: 'Very Long (20+ km)' }
       ]
     },
     {
@@ -47,10 +47,10 @@ const Quiz = () => {
       question: 'How much time do you have?',
       type: 'radio',
       options: [
-        { value: '2-3', label: '⏱️ 2-3 hours' },
-        { value: '4-6', label: '⏱️ 4-6 hours' },
-        { value: '7-10', label: '⏱️ 7-10 hours' },
-        { value: 'full-day', label: '⏱️ Full day (10+ hours)' }
+        { value: '2-3', label: '2-3 hours' },
+        { value: '4-6', label: '4-6 hours' },
+        { value: '7-10', label: '7-10 hours' },
+        { value: 'full-day', label: 'Full day (10+ hours)' }
       ]
     },
     {
@@ -58,11 +58,11 @@ const Quiz = () => {
       question: 'What would you like to see? (Select all that apply)',
       type: 'checkbox',
       options: [
-        { value: 'Peaks', label: '🏔️ Mountain Peaks & Summits' },
-        { value: 'Lakes', label: '💧 Alpine Lakes' },
-        { value: 'Waterfalls', label: '💦 Waterfalls' },
-        { value: 'Valleys', label: '🌄 Valleys & Meadows' },
-        { value: 'Wildlife', label: '🦌 Wildlife Spotting' }
+        { value: 'Peaks', label: 'Mountain Peaks & Summits' },
+        { value: 'Lakes', label: 'Alpine Lakes' },
+        { value: 'Waterfalls', label: 'Waterfalls' },
+        { value: 'Valleys', label: 'Valleys & Meadows' },
+        { value: 'Wildlife', label: 'Wildlife Spotting' }
       ]
     },
     {
@@ -70,10 +70,10 @@ const Quiz = () => {
       question: 'When are you planning to visit?',
       type: 'radio',
       options: [
-        { value: 'Spring', label: '🌸 Spring (March-May)' },
-        { value: 'Summer', label: '☀️ Summer (June-August)' },
-        { value: 'Autumn', label: '🍂 Autumn (September-November)' },
-        { value: 'Winter', label: '❄️ Winter (December-February)' }
+        { value: 'Spring', label: 'Spring (March-May)' },
+        { value: 'Summer', label: 'Summer (June-August)' },
+        { value: 'Autumn', label: 'Autumn (September-November)' },
+        { value: 'Winter', label: 'Winter (December-February)' }
       ]
     },
     {
@@ -81,10 +81,10 @@ const Quiz = () => {
       question: 'Who are you hiking with?',
       type: 'radio',
       options: [
-        { value: 'Solo', label: '🚶 Solo' },
-        { value: 'Family', label: '👨‍👩‍👧‍👦 Family with kids' },
-        { value: 'Friends', label: '👥 Friends/Group' },
-        { value: 'Experienced', label: '⛰️ Experienced hikers' }
+        { value: 'Solo', label: 'Solo' },
+        { value: 'Family', label: 'Family with kids' },
+        { value: 'Friends', label: 'Friends/Group' },
+        { value: 'Experienced', label: 'Experienced hikers' }
       ]
     }
   ]
@@ -168,14 +168,14 @@ const Quiz = () => {
                 cursor: currentStep === 1 ? 'not-allowed' : 'pointer'
               }}
             >
-              ← Back
+              Back
             </button>
 
             <button
               onClick={handleNext}
               className="btn btn-primary"
             >
-              {currentStep === totalSteps ? 'See Results ✨' : 'Next →'}
+              {currentStep === totalSteps ? 'See Results' : 'Next'}
             </button>
           </div>
         </div>
@@ -184,12 +184,12 @@ const Quiz = () => {
         <div style={{ 
           marginTop: '2rem',
           padding: '1rem',
-          backgroundColor: 'rgba(16, 185, 129, 0.1)',
+          backgroundColor: 'rgba(26, 88, 64, 0.1)',
           borderRadius: '12px',
           fontSize: '0.9rem',
           color: 'var(--text-gray)'
         }}>
-          💡 <strong>Tip:</strong> Be honest about your fitness level - it helps us recommend safer, more enjoyable trails for you!
+          <strong>Tip:</strong> Be honest about your fitness level - it helps us recommend safer, more enjoyable trails for you!
         </div>
       </div>
     </main>
