@@ -42,7 +42,7 @@ const TrailCard = ({ trail, showMatch = false, onRemove = null }) => {
         to={`/trail/${trail.id}`} 
         style={{ textDecoration: 'none', color: 'inherit' }}
       >
-        {/* Trail image - now using real photos */}
+        {/* Trail image */}
         <div style={{ position: 'relative' }}>
           <img 
             src={`/images/trails/trail-${trail.id}.jpg`}
@@ -72,7 +72,7 @@ const TrailCard = ({ trail, showMatch = false, onRemove = null }) => {
               color: 'var(--primary)',
               boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
             }}>
-              ✨ {trail.match.score}% Match
+              {trail.match.score}% Match
             </div>
           )}
         </div>
@@ -82,9 +82,9 @@ const TrailCard = ({ trail, showMatch = false, onRemove = null }) => {
           <h3 style={{ marginBottom: '0.75rem' }}>{trail.name}</h3>
           
           <div className="trail-stats" style={{ marginBottom: '1rem' }}>
-            <span className="stat-item">📏 {trail.distance_km} km</span>
-            <span className="stat-item">⏱️ {trail.duration_hours}h</span>
-            <span className="stat-item">📈 {trail.elevation_gain_m}m ↑</span>
+            <span className="stat-item">{trail.distance_km} km</span>
+            <span className="stat-item">{trail.duration_hours}h</span>
+            <span className="stat-item">{trail.elevation_gain_m}m elevation</span>
           </div>
 
           <span 
@@ -121,7 +121,7 @@ const TrailCard = ({ trail, showMatch = false, onRemove = null }) => {
         onClick={handleSaveToggle}
         className={isSaved ? 'btn btn-accent btn-full' : 'btn btn-secondary btn-full'}
       >
-        {isSaved ? '❤️ Saved' : '🤍 Save to My Plan'}
+        {isSaved ? 'Saved to My Plan' : 'Save to My Plan'}
       </button>
     </div>
   )
