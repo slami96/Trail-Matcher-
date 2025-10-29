@@ -54,7 +54,6 @@ const Results = () => {
   if (loading) {
     return (
       <main style={{ padding: '4rem 1rem', textAlign: 'center' }}>
-        <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🏔️</div>
         <h2>Finding your perfect trails...</h2>
         <p>Analyzing 20+ High Tatras trails</p>
       </main>
@@ -69,14 +68,14 @@ const Results = () => {
           <div style={{ 
             display: 'inline-block',
             padding: '1rem 2rem',
-            background: 'linear-gradient(135deg, var(--primary), var(--secondary))',
+            background: 'linear-gradient(135deg, var(--primary), var(--primary-light))',
             borderRadius: '20px',
             color: 'white',
             fontSize: '1.25rem',
             fontWeight: '700',
             marginBottom: '1rem'
           }}>
-            ✨ Your Perfect Matches
+            Your Perfect Matches
           </div>
           
           <h1>Top 5 Trails For You</h1>
@@ -87,7 +86,7 @@ const Results = () => {
             className="btn btn-secondary"
             style={{ marginTop: '1rem' }}
           >
-            🔄 Retake Quiz
+            Retake Quiz
           </button>
         </div>
 
@@ -110,9 +109,9 @@ const Results = () => {
                     #{index + 1}
                   </span>
                   <span style={{ color: 'var(--text-gray)' }}>
-                    {index === 0 && '🏆 Best Match'}
-                    {index === 1 && '🥈 Great Option'}
-                    {index === 2 && '🥉 Also Recommended'}
+                    {index === 0 && 'Best Match'}
+                    {index === 1 && 'Great Option'}
+                    {index === 2 && 'Also Recommended'}
                   </span>
                 </div>
                 <TrailCard trail={trail} showMatch={true} />
@@ -133,7 +132,7 @@ const Results = () => {
         <div style={{ 
           marginTop: '4rem',
           padding: '2rem',
-          background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(20, 184, 166, 0.1))',
+          background: 'linear-gradient(135deg, rgba(26, 88, 64, 0.1), rgba(16, 185, 129, 0.1))',
           borderRadius: '16px',
           textAlign: 'center'
         }}>
@@ -142,7 +141,7 @@ const Results = () => {
             Save your favorite trails to "My Plan" and browse all trails by retaking the quiz with different preferences
           </p>
           <Link to="/my-plan" className="btn btn-primary">
-            View My Saved Trails 💚
+            View My Saved Trails
           </Link>
         </div>
       </div>
