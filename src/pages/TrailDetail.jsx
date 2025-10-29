@@ -82,10 +82,10 @@ const TrailDetail = () => {
     <main style={{ padding: '2rem 1rem', minHeight: '80vh' }}>
       <div className="container" style={{ maxWidth: '900px' }}>
         <Link to="/results" className="btn btn-secondary" style={{ marginBottom: '2rem' }}>
-          ← Back to Results
+          Back to Results
         </Link>
 
-        {/* Hero image - now using real photo */}
+        {/* Hero image */}
         <img 
           src={`/images/trails/trail-${trail.id}.jpg`}
           alt={trail.name}
@@ -119,7 +119,7 @@ const TrailDetail = () => {
               onClick={handleSaveToggle}
               className={isSaved ? 'btn btn-accent' : 'btn btn-secondary'}
             >
-              {isSaved ? '❤️ Saved to My Plan' : '🤍 Save to My Plan'}
+              {isSaved ? 'Saved to My Plan' : 'Save to My Plan'}
             </button>
           </div>
 
@@ -132,7 +132,6 @@ const TrailDetail = () => {
           
           <div className="grid grid-2">
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <span style={{ fontSize: '2rem' }}>📏</span>
               <div>
                 <div style={{ fontWeight: '600', color: 'var(--text-dark)' }}>
                   {trail.distance_km} km
@@ -144,7 +143,6 @@ const TrailDetail = () => {
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <span style={{ fontSize: '2rem' }}>⏱️</span>
               <div>
                 <div style={{ fontWeight: '600', color: 'var(--text-dark)' }}>
                   {trail.duration_hours} hours
@@ -156,7 +154,6 @@ const TrailDetail = () => {
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <span style={{ fontSize: '2rem' }}>📈</span>
               <div>
                 <div style={{ fontWeight: '600', color: 'var(--text-dark)' }}>
                   {trail.elevation_gain_m} m
@@ -168,7 +165,6 @@ const TrailDetail = () => {
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <span style={{ fontSize: '2rem' }}>🌤️</span>
               <div>
                 <div style={{ fontWeight: '600', color: 'var(--text-dark)' }}>
                   {trail.best_season}
@@ -209,7 +205,7 @@ const TrailDetail = () => {
         <div style={{ 
           marginTop: '3rem',
           padding: '2rem',
-          background: 'linear-gradient(135deg, var(--primary), var(--secondary))',
+          background: 'linear-gradient(135deg, var(--primary), var(--primary-light))',
           borderRadius: '16px',
           color: 'white',
           textAlign: 'center'
