@@ -179,18 +179,6 @@ const Quiz = () => {
             </button>
           </div>
         </div>
-
-        {/* Tips */}
-        <div style={{ 
-          marginTop: '2rem',
-          padding: '1rem',
-          backgroundColor: 'rgba(26, 88, 64, 0.1)',
-          borderRadius: '12px',
-          fontSize: '0.9rem',
-          color: 'var(--text-gray)'
-        }}>
-          <strong>Tip:</strong> Be honest about your fitness level - it helps us recommend safer, more enjoyable trails for you!
-        </div>
       </div>
     </main>
   )
