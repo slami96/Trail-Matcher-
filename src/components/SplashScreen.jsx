@@ -51,41 +51,31 @@ const SplashScreen = ({ onComplete }) => {
             className="splash-text"
             style={{
               opacity: showText1 ? 1 : 0,
-              transition: 'opacity 0.5s ease-in'
+              transition: 'opacity 0.6s ease-in'
             }}
           >
             Choose Your Preference
           </span>
           
-          {showText2 && (
-            <>
-              <span className="splash-arrow">→</span>
-              <span 
-                className="splash-text"
-                style={{
-                  opacity: showText2 ? 1 : 0,
-                  transition: 'opacity 0.5s ease-in'
-                }}
-              >
-                Pick Your Hike
-              </span>
-            </>
-          )}
+          <span 
+            className="splash-text"
+            style={{
+              opacity: showText2 ? 1 : 0,
+              transition: 'opacity 0.6s ease-in'
+            }}
+          >
+            Pick Your Hike
+          </span>
           
-          {showText3 && (
-            <>
-              <span className="splash-arrow">→</span>
-              <span 
-                className="splash-text"
-                style={{
-                  opacity: showText3 ? 1 : 0,
-                  transition: 'opacity 0.5s ease-in'
-                }}
-              >
-                Save Your Journey
-              </span>
-            </>
-          )}
+          <span 
+            className="splash-text"
+            style={{
+              opacity: showText3 ? 1 : 0,
+              transition: 'opacity 0.6s ease-in'
+            }}
+          >
+            Save Your Journey
+          </span>
         </div>
       </div>
     </div>
