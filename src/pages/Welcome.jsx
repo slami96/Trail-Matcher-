@@ -4,14 +4,13 @@ const Welcome = () => {
   return (
     <main className="welcome-container">
       <div className="welcome-content">
-        {/* Large Logo Section */}
+        {/* Large Logo - 20% bigger */}
         <div className="welcome-logo-section">
           <img 
             src="/images/logo.png" 
             alt="Trail Matcher Logo"
             className="welcome-logo"
           />
-          <h1 className="welcome-title">TRAIL MATCHER</h1>
         </div>
 
         {/* Main Heading */}
@@ -24,13 +23,8 @@ const Welcome = () => {
 
         {/* CTA Button */}
         <Link to="/quiz" className="btn btn-cta">
-          START QUIZ
+          START NOW
         </Link>
-
-        {/* Simple 3-step explanation */}
-        <div className="welcome-steps">
-          <span>Take Quiz → Get Matches → Save Trails</span>
-        </div>
       </div>
     </main>
   )
