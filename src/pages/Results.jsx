@@ -86,7 +86,7 @@ const Results = () => {
             className="btn btn-secondary"
             style={{ marginTop: '1rem' }}
           >
-            Retake Quiz
+            Start Again
           </button>
         </div>
 
@@ -123,7 +123,7 @@ const Results = () => {
             <h2>No trails found</h2>
             <p>Try adjusting your preferences</p>
             <button onClick={retakeQuiz} className="btn btn-primary">
-              Retake Quiz
+              Start Again
             </button>
           </div>
         )}
