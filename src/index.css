@@ -256,14 +256,14 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: calc(100vh - 200px);
+  min-height: 100vh; /* Full screen - covers everything including bottom nav area */
   background-color: var(--bg-white);
-  background-image: url('/images/background.png');
+  background-image: url('/images/background.jpg'); /* Optimized JPG */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  padding: 2rem 1rem;
+  padding: 2rem 1rem 200px 1rem; /* Extra bottom padding for nav buttons */
 }
 
 .welcome-container::before {
