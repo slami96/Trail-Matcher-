@@ -37,92 +37,100 @@ const TrailCard = ({ trail, showMatch = false, onRemove = null }) => {
   }
 
   return (
-    <div className="card" style={{ position: 'relative', cursor: 'pointer' }}>
-      <Link 
-        to={`/trail/${trail.id}`} 
-        style={{ textDecoration: 'none', color: 'inherit' }}
-      >
-        {/* Trail image */}
-        <div style={{ position: 'relative' }}>
-          <img 
-            src={`/images/trails/trail-${trail.id}.jpg`}
-            alt={trail.name}
-            style={{
-              width: '100%',
-              height: '200px',
-              borderRadius: '12px',
-              objectFit: 'cover',
-              marginBottom: '1rem'
-            }}
-            loading="lazy"
-          />
-          
-          {/* Match badge - positioned on top of image */}
-          {showMatch && trail.match && (
-            <div style={{
-              position: 'absolute',
-              top: '1rem',
-              left: '1rem',
-              padding: '0.5rem 1rem',
-              background: 'rgba(255, 255, 255, 0.95)',
-              backdropFilter: 'blur(10px)',
-              borderRadius: '20px',
-              fontWeight: '700',
-              fontSize: '1rem',
-              color: 'var(--primary)',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
-            }}>
-              {trail.match.score}% Match
-            </div>
-          )}
-        </div>
-
-        {/* Trail info */}
-        <div>
-          <h3 style={{ marginBottom: '0.75rem' }}>{trail.name}</h3>
-          
-          <div className="trail-stats" style={{ marginBottom: '1rem' }}>
-            <span className="stat-item">{trail.distance_km} km</span>
-            <span className="stat-item">{trail.duration_hours}h</span>
-            <span className="stat-item">{trail.elevation_gain_m}m elevation</span>
+    <div className="card" style={{ position: 'relative' }}>
+      {/* Trail image */}
+      <div style={{ position: 'relative' }}>
+        <img 
+          src={`/images/trails/trail-${trail.id}.jpg`}
+          alt={trail.name}
+          style={{
+            width: '100%',
+            height: '200px',
+            borderRadius: '12px',
+            objectFit: 'cover',
+            marginBottom: '1rem'
+          }}
+          loading="lazy"
+        />
+        
+        {/* Match badge - positioned on top of image */}
+        {showMatch && trail.match && (
+          <div style={{
+            position: 'absolute',
+            top: '1rem',
+            left: '1rem',
+            padding: '0.5rem 1rem',
+            background: 'rgba(255, 255, 255, 0.95)',
+            backdropFilter: 'blur(10px)',
+            borderRadius: '20px',
+            fontWeight: '700',
+            fontSize: '1rem',
+            color: 'var(--primary)',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+          }}>
+            {trail.match.score}% Match
           </div>
+        )}
+      </div>
 
-          <span 
-            className="badge" 
-            style={{ 
-              backgroundColor: getDifficultyColor(trail.difficulty),
-              display: 'inline-block',
-              marginBottom: '1rem'
-            }}
-          >
-            {trail.difficulty}
-          </span>
-
-          {/* Match reasons */}
-          {showMatch && trail.match && trail.match.reasons.length > 0 && (
-            <div style={{ 
-              fontSize: '0.9rem', 
-              color: 'var(--text-gray)',
-              marginBottom: '1rem',
-              lineHeight: '1.6'
-            }}>
-              {trail.match.reasons.map((reason, idx) => (
-                <div key={idx} style={{ marginBottom: '0.25rem' }}>
-                  ✓ {reason}
-                </div>
-              ))}
-            </div>
-          )}
+      {/* Trail info */}
+      <div>
+        <h3 style={{ marginBottom: '0.75rem' }}>{trail.name}</h3>
+        
+        <div className="trail-stats" style={{ marginBottom: '1rem' }}>
+          <span className="stat-item">{trail.distance_km} km</span>
+          <span className="stat-item">{trail.duration_hours}h</span>
+          <span className="stat-item">{trail.elevation_gain_m}m elevation</span>
         </div>
-      </Link>
 
-      {/* Save button - outside Link to prevent nesting */}
-      <button
-        onClick={handleSaveToggle}
-        className={isSaved ? 'btn btn-accent btn-full' : 'btn btn-secondary btn-full'}
-      >
-        {isSaved ? 'Saved to My Plan' : 'Save to My Plan'}
-      </button>
+        <span 
+          className="badge" 
+          style={{ 
+            backgroundColor: getDifficultyColor(trail.difficulty),
+            display: 'inline-block',
+            marginBottom: '1rem'
+          }}
+        >
+          {trail.difficulty}
+        </span>
+
+        {/* Match reasons */}
+        {showMatch && trail.match && trail.match.reasons.length > 0 && (
+          <div style={{ 
+            fontSize: '0.9rem', 
+            color: 'var(--text-gray)',
+            marginBottom: '1rem',
+            lineHeight: '1.6'
+          }}>
+            {trail.match.reasons.map((reason, idx) => (
+              <div key={idx} style={{ marginBottom: '0.25rem' }}>
+                ✓ {reason}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Buttons */}
+      <div style={{ display: 'flex', gap: '0.5rem', flexDirection: 'column' }}>
+        {/* See Details button - only show on Results page */}
+        {showMatch && (
+          <Link 
+            to={`/trail/${trail.id}`}
+            className="btn btn-secondary btn-full"
+          >
+            See Details
+          </Link>
+        )}
+        
+        {/* Save button */}
+        <button
+          onClick={handleSaveToggle}
+          className={isSaved ? 'btn btn-accent btn-full' : 'btn btn-primary btn-full'}
+        >
+          {isSaved ? 'Saved to My Plan' : 'Save to My Plan'}
+        </button>
+      </div>
     </div>
   )
 }
