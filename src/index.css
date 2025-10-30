@@ -256,15 +256,33 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: calc(100vh - 200px); /* Adjusted for non-fixed nav */
+  min-height: calc(100vh - 200px);
   background-color: var(--bg-white);
+  background-image: url('/images/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
   padding: 2rem 1rem;
+}
+
+.welcome-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.7); /* 70% white overlay */
+  z-index: 0;
 }
 
 .welcome-content {
   text-align: center;
   max-width: 600px;
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .welcome-logo-section {
