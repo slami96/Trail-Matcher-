@@ -56,7 +56,7 @@ const MyPlan = () => {
           
           {savedTrails.length > 0 && (
             <div style={{ display: 'flex', gap: '1rem' }}>
-              <Link to="/quiz" className="btn btn-primary">
+              <Link to="/quiz" className="btn btn-cta">
                 START NOW
               </Link>
               <button 
@@ -133,7 +133,7 @@ const MyPlan = () => {
           <div className="empty-state">
             <h2>No Trails Saved Yet</h2>
             <p>Answer quick questions to find trails that match your preferences and save your favorites here!</p>
-            <Link to="/quiz" className="btn btn-primary" style={{ marginTop: '1.5rem' }}>
+            <Link to="/quiz" className="btn btn-cta" style={{ marginTop: '1.5rem' }}>
               START NOW
             </Link>
           </div>
