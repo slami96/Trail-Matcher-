@@ -200,29 +200,6 @@ const TrailDetail = () => {
           <h3 style={{ marginBottom: '1rem' }}>Suitable For</h3>
           <p style={{ lineHeight: '1.7' }}>{trail.suitable_for}</p>
         </div>
-
-        {/* CTA */}
-        <div style={{ 
-          marginTop: '3rem',
-          padding: '2rem',
-          background: 'linear-gradient(135deg, var(--primary), var(--primary-light))',
-          borderRadius: '16px',
-          color: 'white',
-          textAlign: 'center'
-        }}>
-          <h3 style={{ color: 'white', marginBottom: '1rem' }}>Ready to Hike This Trail?</h3>
-          <p style={{ color: 'rgba(255,255,255,0.9)', marginBottom: '1.5rem' }}>
-            Save it to your plan and discover more amazing trails
-          </p>
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link to="/quiz" className="btn" style={{ backgroundColor: 'white', color: 'var(--primary)' }}>
-              Find More Trails
-            </Link>
-            <Link to="/my-plan" className="btn btn-secondary" style={{ borderColor: 'white', color: 'white' }}>
-              View My Plan
-            </Link>
-          </div>
-        </div>
       </div>
     </main>
   )
