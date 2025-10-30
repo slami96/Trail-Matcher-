@@ -7,15 +7,15 @@ const BottomNav = () => {
     <nav className="bottom-nav">
       <Link 
         to="/" 
-        className={`bottom-nav-item ${location.pathname === '/' ? 'active' : ''}`}
+        className={`bottom-nav-circle ${location.pathname === '/' ? 'active' : ''}`}
       >
-        Home
+        <span className="nav-label">Home</span>
       </Link>
       <Link 
         to="/my-plan" 
-        className={`bottom-nav-item ${location.pathname === '/my-plan' ? 'active' : ''}`}
+        className={`bottom-nav-circle ${location.pathname === '/my-plan' ? 'active' : ''}`}
       >
-        My Plan
+        <span className="nav-label">My Plan</span>
       </Link>
     </nav>
   )
