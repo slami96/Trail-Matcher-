@@ -138,7 +138,7 @@ const Quiz = () => {
       minHeight: '100vh',
       height: '100vh',
       overflow: 'hidden',
-      padding: '0.75rem',
+      padding: '1rem',
       backgroundColor: 'var(--bg-white)'
     }}>
       <div style={{ 
@@ -147,11 +147,10 @@ const Quiz = () => {
         margin: '0 auto',
         display: 'flex',
         flexDirection: 'column',
-        height: '100%',
-        justifyContent: 'space-between'
+        height: '100%'
       }}>
         {/* Ultra-Compact Header */}
-        <div style={{ marginBottom: '0.75rem' }}>
+        <div style={{ marginBottom: '1rem', flexShrink: 0 }}>
           <div style={{ 
             display: 'flex',
             justifyContent: 'space-between',
@@ -178,38 +177,33 @@ const Quiz = () => {
           <ProgressBar current={currentStep} total={totalSteps} />
         </div>
 
-        {/* Question Section - Takes remaining space */}
+        {/* Question title */}
+        <h2 style={{ 
+          fontSize: '1.15rem',
+          marginBottom: '1rem',
+          fontWeight: '600',
+          color: 'var(--text-dark)',
+          flexShrink: 0
+        }}>
+          {currentQuestion.question}
+        </h2>
+
+        {/* Options - Takes remaining space and distributes evenly */}
         <div style={{ 
-          flex: 1, 
+          flex: 1,
           display: 'flex',
           flexDirection: 'column',
           minHeight: 0,
-          marginBottom: '0.75rem'
+          marginBottom: '1rem'
         }}>
-          <h2 style={{ 
-            fontSize: '1.1rem',
-            marginBottom: '0.75rem',
-            fontWeight: '600',
-            color: 'var(--text-dark)'
-          }}>
-            {currentQuestion.question}
-          </h2>
-
-          {/* Options with smart grid */}
-          <div style={{ 
-            flex: 1,
-            overflowY: 'auto',
-            overflowX: 'hidden'
-          }}>
-            <QuizQuestion
-              question={currentQuestion.question}
-              type={currentQuestion.type}
-              options={currentQuestion.options}
-              value={answers[currentQuestion.id]}
-              onChange={updateAnswer}
-              optionCount={currentQuestion.options.length}
-            />
-          </div>
+          <QuizQuestion
+            question={currentQuestion.question}
+            type={currentQuestion.type}
+            options={currentQuestion.options}
+            value={answers[currentQuestion.id]}
+            onChange={updateAnswer}
+            optionCount={currentQuestion.options.length}
+          />
         </div>
 
         {/* Navigation buttons - 3 buttons in a row */}
@@ -217,7 +211,8 @@ const Quiz = () => {
           display: 'grid',
           gridTemplateColumns: '1fr 1fr 1fr',
           gap: '0.5rem',
-          paddingBottom: '0.5rem'
+          paddingBottom: '0.5rem',
+          flexShrink: 0
         }}>
           <button
             onClick={handleBack}
@@ -228,7 +223,7 @@ const Quiz = () => {
               cursor: currentStep === 1 ? 'not-allowed' : 'pointer',
               padding: '0.75rem 0.5rem',
               fontSize: '0.9rem',
-              minHeight: '44px'
+              minHeight: '48px'
             }}
           >
             Back
@@ -240,7 +235,7 @@ const Quiz = () => {
             style={{ 
               padding: '0.75rem 0.5rem',
               fontSize: '0.9rem',
-              minHeight: '44px'
+              minHeight: '48px'
             }}
           >
             Home
@@ -252,7 +247,7 @@ const Quiz = () => {
             style={{ 
               padding: '0.75rem 0.5rem',
               fontSize: '0.9rem',
-              minHeight: '44px'
+              minHeight: '48px'
             }}
           >
             {currentStep === totalSteps ? 'Results' : 'Next'}
