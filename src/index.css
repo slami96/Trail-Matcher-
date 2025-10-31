@@ -32,7 +32,7 @@ body {
   color: var(--text-dark);
   background-color: var(--bg-white);
   line-height: 1.5;
-  padding-bottom: 0; /* No padding - nav is no longer fixed */
+  padding-bottom: 0;
 }
 
 /* Typography */
@@ -205,21 +205,29 @@ p {
   }
 }
 
-/* ===== BOTTOM NAVIGATION (RECTANGULAR BUTTONS) ===== */
+/* ===== BOTTOM NAVIGATION - FIXED & TRANSPARENT ===== */
 .bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  padding: 3rem 1rem;
-  background-color: var(--bg-white);
+  padding: 1.5rem 1rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(226, 232, 240, 0.5);
+  z-index: 100;
 }
 
 .bottom-nav-btn {
   min-width: 160px;
-  padding: 1.25rem 2rem;
+  padding: 1rem 2rem;
   text-decoration: none;
-  background-color: var(--bg-white);
+  background-color: rgba(255, 255, 255, 0.9);
   border: 2px solid var(--border);
   border-radius: 16px;
   color: var(--text-gray);
@@ -251,19 +259,20 @@ p {
   font-weight: 600;
 }
 
-/* ===== WELCOME PAGE REDESIGN ===== */
+/* ===== WELCOME PAGE - FULL SCREEN ===== */
 .welcome-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh; /* Full screen - covers everything including bottom nav area */
+  min-height: 100vh;
+  height: 100vh;
   background-color: var(--bg-white);
-  background-image: url('/images/background.jpg'); /* Optimized JPG */
+  background-image: url('/images/background.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  padding: 2rem 1rem 200px 1rem; /* Extra bottom padding for nav buttons */
+  padding: 2rem 1rem;
 }
 
 .welcome-container::before {
@@ -273,7 +282,7 @@ p {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(255, 255, 255, 0.7); /* 70% white overlay */
+  background-color: rgba(255, 255, 255, 0.7);
   z-index: 0;
 }
 
@@ -310,6 +319,11 @@ p {
   color: var(--text-gray);
   margin-bottom: 2.5rem;
   line-height: 1.6;
+}
+
+/* Add padding to main content areas to account for fixed nav */
+main {
+  padding-bottom: 120px;
 }
 
 /* Top Navigation (keep minimal for other pages) */
