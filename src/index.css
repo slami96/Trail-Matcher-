@@ -205,7 +205,7 @@ p {
   }
 }
 
-/* ===== BOTTOM NAVIGATION - TRANSPARENT GLASS ===== */
+/* ===== BOTTOM NAVIGATION - ULTRA TRANSPARENT GLASS ===== */
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -214,27 +214,27 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
-  padding: 1.5rem 1rem;
-  background-color: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  gap: 1.5rem;
+  padding: 1rem 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
   z-index: 100;
 }
 
 .bottom-nav-btn {
-  min-width: 160px;
-  padding: 1rem 2rem;
+  min-width: 128px;
+  padding: 0.8rem 1.6rem;
   text-decoration: none;
-  background-color: rgba(255, 255, 255, 0.6);
-  border: 2px solid rgba(26, 88, 64, 0.2);
-  border-radius: 16px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1.5px solid rgba(26, 88, 64, 0.15);
+  border-radius: 12px;
   color: var(--text-dark);
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.95rem;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   text-align: center;
   display: flex;
   align-items: center;
@@ -245,8 +245,8 @@ p {
 
 .bottom-nav-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  background-color: rgba(255, 255, 255, 0.5);
   border-color: var(--primary);
 }
 
@@ -254,11 +254,11 @@ p {
   background-color: var(--primary);
   border-color: var(--primary);
   color: white;
-  box-shadow: 0 6px 20px rgba(26, 88, 64, 0.3);
+  box-shadow: 0 4px 16px rgba(26, 88, 64, 0.3);
 }
 
 .nav-label {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
 }
 
@@ -325,7 +325,7 @@ p {
 
 /* Add padding to main content areas to account for fixed nav */
 main {
-  padding-bottom: 120px;
+  padding-bottom: 100px;
 }
 
 /* Top Navigation (keep minimal for other pages) */
