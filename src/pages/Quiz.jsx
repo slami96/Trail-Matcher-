@@ -120,6 +120,10 @@ const Quiz = () => {
     }
   }
 
+  const handleHome = () => {
+    navigate('/')
+  }
+
   const updateAnswer = (value) => {
     setAnswers({
       ...answers,
@@ -128,59 +132,104 @@ const Quiz = () => {
   }
 
   return (
-    <main style={{ padding: '2rem 1rem', minHeight: '80vh' }}>
-      <div className="container" style={{ maxWidth: '700px' }}>
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      minHeight: '100vh',
+      height: '100vh',
+      overflow: 'hidden',
+      padding: '1rem',
+      backgroundColor: 'var(--bg-white)'
+    }}>
+      <div style={{ 
+        maxWidth: '700px', 
+        width: '100%',
+        margin: '0 auto',
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%',
+        justifyContent: 'space-between'
+      }}>
         {/* Header */}
-        <div className="text-center mb-3">
-          <h1>Find Your Perfect Trail</h1>
-          <p>Answer {totalSteps} quick questions to get personalized recommendations</p>
+        <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
+          <h1 style={{ fontSize: '1.75rem', marginBottom: '0.5rem' }}>Find Your Perfect Trail</h1>
+          <p style={{ fontSize: '0.9rem' }}>Answer {totalSteps} quick questions</p>
         </div>
 
         {/* Progress bar */}
         <ProgressBar current={currentStep} total={totalSteps} />
 
         {/* Question card */}
-        <div className="card" style={{ padding: '2rem' }}>
-          <div style={{ 
-            color: 'var(--primary)', 
-            fontWeight: '600',
-            marginBottom: '0.5rem'
-          }}>
-            Question {currentStep} of {totalSteps}
-          </div>
+        <div style={{ 
+          flex: 1, 
+          overflowY: 'auto',
+          marginBottom: '1rem'
+        }}>
+          <div className="card" style={{ padding: '1.5rem' }}>
+            <div style={{ 
+              color: 'var(--primary)', 
+              fontWeight: '600',
+              marginBottom: '0.5rem',
+              fontSize: '0.9rem'
+            }}>
+              Question {currentStep} of {totalSteps}
+            </div>
 
-          <QuizQuestion
-            question={currentQuestion.question}
-            type={currentQuestion.type}
-            options={currentQuestion.options}
-            value={answers[currentQuestion.id]}
-            onChange={updateAnswer}
-          />
-
-          {/* Navigation buttons */}
-          <div className="flex-between" style={{ marginTop: '2rem' }}>
-            <button
-              onClick={handleBack}
-              className="btn btn-secondary"
-              disabled={currentStep === 1}
-              style={{ 
-                opacity: currentStep === 1 ? 0.5 : 1,
-                cursor: currentStep === 1 ? 'not-allowed' : 'pointer'
-              }}
-            >
-              Back
-            </button>
-
-            <button
-              onClick={handleNext}
-              className="btn btn-primary"
-            >
-              {currentStep === totalSteps ? 'See Results' : 'Next'}
-            </button>
+            <QuizQuestion
+              question={currentQuestion.question}
+              type={currentQuestion.type}
+              options={currentQuestion.options}
+              value={answers[currentQuestion.id]}
+              onChange={updateAnswer}
+            />
           </div>
         </div>
+
+        {/* Navigation buttons - 3 buttons in a row */}
+        <div style={{ 
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr 1fr',
+          gap: '0.75rem',
+          paddingBottom: '1rem'
+        }}>
+          <button
+            onClick={handleBack}
+            className="btn btn-secondary"
+            disabled={currentStep === 1}
+            style={{ 
+              opacity: currentStep === 1 ? 0.5 : 1,
+              cursor: currentStep === 1 ? 'not-allowed' : 'pointer',
+              padding: '0.875rem 1rem',
+              fontSize: '1rem'
+            }}
+          >
+            Back
+          </button>
+
+          <button
+            onClick={handleHome}
+            className="btn btn-secondary"
+            style={{ 
+              padding: '0.875rem 1rem',
+              fontSize: '1rem'
+            }}
+          >
+            Home
+          </button>
+
+          <button
+            onClick={handleNext}
+            className="btn btn-primary"
+            style={{ 
+              padding: '0.875rem 1rem',
+              fontSize: '1rem'
+            }}
+          >
+            {currentStep === totalSteps ? 'Results' : 'Next'}
+          </button>
+        </div>
       </div>
-    </main>
+    </div>
   )
 }
 
