@@ -409,14 +409,14 @@ nav:not(.bottom-nav) .container {
   background-color: var(--text-gray);
 }
 
-/* Progress Bar */
+/* Progress Bar - THINNER */
 .progress-container {
   width: 100%;
-  height: 8px;
+  height: 4px;
   background-color: var(--border);
   border-radius: 10px;
   overflow: hidden;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .progress-bar {
@@ -475,6 +475,20 @@ input[type="checkbox"] {
 .radio-option input:checked + label,
 .checkbox-option input:checked + label {
   color: var(--primary);
+}
+
+/* Quiz Compact Styles - for mobile optimization */
+.radio-option.quiz-compact,
+.checkbox-option.quiz-compact {
+  padding: 0.75rem;
+  min-height: 44px;
+}
+
+.radio-option.quiz-compact:hover,
+.checkbox-option.quiz-compact:hover {
+  border-color: var(--primary);
+  background-color: rgba(26, 88, 64, 0.05);
+  transform: translateY(-1px);
 }
 
 /* Trail card specific */
