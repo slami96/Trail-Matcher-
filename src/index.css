@@ -477,18 +477,18 @@ input[type="checkbox"] {
   color: var(--primary);
 }
 
-/* Quiz Compact Styles - for mobile optimization */
-.radio-option.quiz-compact,
-.checkbox-option.quiz-compact {
-  padding: 0.75rem;
-  min-height: 44px;
+/* Quiz Spacious Styles - for better mobile experience */
+.radio-option.quiz-spacious,
+.checkbox-option.quiz-spacious {
+  padding: 1.25rem;
+  min-height: 60px;
 }
 
-.radio-option.quiz-compact:hover,
-.checkbox-option.quiz-compact:hover {
+.radio-option.quiz-spacious:hover,
+.checkbox-option.quiz-spacious:hover {
   border-color: var(--primary);
   background-color: rgba(26, 88, 64, 0.05);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 /* Trail card specific */
