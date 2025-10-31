@@ -138,7 +138,7 @@ const Quiz = () => {
       minHeight: '100vh',
       height: '100vh',
       overflow: 'hidden',
-      padding: '1rem',
+      padding: '0.75rem',
       backgroundColor: 'var(--bg-white)'
     }}>
       <div style={{ 
@@ -150,37 +150,64 @@ const Quiz = () => {
         height: '100%',
         justifyContent: 'space-between'
       }}>
-        {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
-          <h1 style={{ fontSize: '1.75rem', marginBottom: '0.5rem' }}>Find Your Perfect Trail</h1>
-          <p style={{ fontSize: '0.9rem' }}>Answer {totalSteps} quick questions</p>
-        </div>
-
-        {/* Progress bar */}
-        <ProgressBar current={currentStep} total={totalSteps} />
-
-        {/* Question card */}
-        <div style={{ 
-          flex: 1, 
-          overflowY: 'auto',
-          marginBottom: '1rem'
-        }}>
-          <div className="card" style={{ padding: '1.5rem' }}>
-            <div style={{ 
-              color: 'var(--primary)', 
-              fontWeight: '600',
-              marginBottom: '0.5rem',
-              fontSize: '0.9rem'
+        {/* Ultra-Compact Header */}
+        <div style={{ marginBottom: '0.75rem' }}>
+          <div style={{ 
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            marginBottom: '0.5rem'
+          }}>
+            <h1 style={{ 
+              fontSize: '1.25rem', 
+              margin: 0,
+              fontWeight: '700'
             }}>
               Question {currentStep} of {totalSteps}
-            </div>
+            </h1>
+            <span style={{ 
+              fontSize: '0.85rem',
+              color: 'var(--text-gray)',
+              fontWeight: '600'
+            }}>
+              {Math.round((currentStep / totalSteps) * 100)}%
+            </span>
+          </div>
+          
+          {/* Thin Progress bar */}
+          <ProgressBar current={currentStep} total={totalSteps} />
+        </div>
 
+        {/* Question Section - Takes remaining space */}
+        <div style={{ 
+          flex: 1, 
+          display: 'flex',
+          flexDirection: 'column',
+          minHeight: 0,
+          marginBottom: '0.75rem'
+        }}>
+          <h2 style={{ 
+            fontSize: '1.1rem',
+            marginBottom: '0.75rem',
+            fontWeight: '600',
+            color: 'var(--text-dark)'
+          }}>
+            {currentQuestion.question}
+          </h2>
+
+          {/* Options with smart grid */}
+          <div style={{ 
+            flex: 1,
+            overflowY: 'auto',
+            overflowX: 'hidden'
+          }}>
             <QuizQuestion
               question={currentQuestion.question}
               type={currentQuestion.type}
               options={currentQuestion.options}
               value={answers[currentQuestion.id]}
               onChange={updateAnswer}
+              optionCount={currentQuestion.options.length}
             />
           </div>
         </div>
@@ -189,8 +216,8 @@ const Quiz = () => {
         <div style={{ 
           display: 'grid',
           gridTemplateColumns: '1fr 1fr 1fr',
-          gap: '0.75rem',
-          paddingBottom: '1rem'
+          gap: '0.5rem',
+          paddingBottom: '0.5rem'
         }}>
           <button
             onClick={handleBack}
@@ -199,8 +226,9 @@ const Quiz = () => {
             style={{ 
               opacity: currentStep === 1 ? 0.5 : 1,
               cursor: currentStep === 1 ? 'not-allowed' : 'pointer',
-              padding: '0.875rem 1rem',
-              fontSize: '1rem'
+              padding: '0.75rem 0.5rem',
+              fontSize: '0.9rem',
+              minHeight: '44px'
             }}
           >
             Back
@@ -210,8 +238,9 @@ const Quiz = () => {
             onClick={handleHome}
             className="btn btn-secondary"
             style={{ 
-              padding: '0.875rem 1rem',
-              fontSize: '1rem'
+              padding: '0.75rem 0.5rem',
+              fontSize: '0.9rem',
+              minHeight: '44px'
             }}
           >
             Home
@@ -221,8 +250,9 @@ const Quiz = () => {
             onClick={handleNext}
             className="btn btn-primary"
             style={{ 
-              padding: '0.875rem 1rem',
-              fontSize: '1rem'
+              padding: '0.75rem 0.5rem',
+              fontSize: '0.9rem',
+              minHeight: '44px'
             }}
           >
             {currentStep === totalSteps ? 'Results' : 'Next'}
