@@ -111,20 +111,18 @@ const TrailCard = ({ trail, showMatch = false, onRemove = null }) => {
         )}
       </div>
 
-      {/* Buttons - SAME SIZE AND STYLE */}
+      {/* Buttons - ALWAYS SHOW SEE DETAILS */}
       <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1rem' }}>
-        {/* See Details button - only show on Results page */}
-        {showMatch && (
-          <Link 
-            to={`/trail/${trail.id}`}
-            className="btn btn-secondary"
-            style={{ flex: 1 }}
-          >
-            See Details
-          </Link>
-        )}
+        {/* See Details button - ALWAYS SHOW */}
+        <Link 
+          to={`/trail/${trail.id}`}
+          className="btn btn-secondary"
+          style={{ flex: 1 }}
+        >
+          See Details
+        </Link>
         
-        {/* Save button - SAME STYLE */}
+        {/* Save button */}
         <button
           onClick={handleSaveToggle}
           className={isSaved ? 'btn btn-accent' : 'btn btn-primary'}
