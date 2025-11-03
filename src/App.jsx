@@ -29,7 +29,7 @@ function AppContent() {
 function App() {
   const [showSplash, setShowSplash] = useState(true)
 
-  // Check if splash has been shown in this session
+
   useEffect(() => {
     const splashShown = sessionStorage.getItem('splashShown')
     if (splashShown) {
