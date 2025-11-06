@@ -204,7 +204,7 @@ p {
   }
 }
 
-/* ===== BOTTOM NAVIGATION ===== */
+/* BOTTOM NAVIGATION */
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -261,7 +261,7 @@ p {
   font-weight: 600;
 }
 
-/* ===== WELCOME PAGE - FULL SCREEN ===== */
+/*  WELCOME PAGE - FULL SCREEN */
 .welcome-container {
   display: flex;
   align-items: center;
@@ -322,7 +322,7 @@ p {
   line-height: 1.6;
 }
 
-/* fixed nav */
+/* fix */
 main {
   padding-bottom: 100px;
 }
